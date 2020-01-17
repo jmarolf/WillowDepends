@@ -1,5 +1,4 @@
-﻿using ReactiveUI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WillowDepends.UI.ViewModels;
+using Microsoft.Win32;
+using ReactiveUI;
 
 namespace WillowDepends.UI.Views
 {
@@ -25,8 +26,22 @@ namespace WillowDepends.UI.Views
         public WorkloadsView()
         {
             InitializeComponent();
-            ViewModel = new WorkloadViewModel(@"\\cpvsbuild\drops\VS\d15.9\products\28107.00\VisualStudio.vsman");
+            string filePath = OpenManifestFile();
+            ViewModel = new WorkloadViewModel(filePath);
             this.WhenAnyValue(x => x.ViewModel).BindTo(this, x => x.DataContext);
+        }
+
+        private string OpenManifestFile() {
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.CurrentDirectory;
+            openFileDialog.Filter = "manifest files (*.vsman)|*.vsman|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == true) {
+                return openFileDialog.FileName;
+            }
+
+            return null;
         }
 
         public IWorkloadViewModel ViewModel { get; set; }
