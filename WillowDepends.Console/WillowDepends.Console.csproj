@@ -5,27 +5,12 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.Setup">
-      <HintPath>..\lib\Microsoft.VisualStudio.Setup.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.Setup.Common">
-      <HintPath>..\lib\Microsoft.VisualStudio.Setup.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.Setup.Engine">
-      <HintPath>..\lib\Microsoft.VisualStudio.Setup.Engine.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\WillowDepends.Lib\WillowDepends.Lib.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Mono.Options" Version="4.4.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="8.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Setup.Operations " Version="2.3.1072-merge-gbbc7c9f1" />
+    <PackageReference Include="Mono.Options" Version="4.4.0.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
 </Project>
