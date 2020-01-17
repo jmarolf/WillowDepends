@@ -32,11 +32,12 @@ namespace WillowDepends.UI.Views
         }
 
         private string OpenManifestFile() {
-            var openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.CurrentDirectory;
-            openFileDialog.Filter = "manifest files (*.vsman)|*.vsman|All files (*.*)|*.*";
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
+            var openFileDialog = new OpenFileDialog {
+                InitialDirectory = Environment.CurrentDirectory,
+                Filter = "All files (*.*)|*.*|manifest files (*.vsman)|*.vsman",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
             if (openFileDialog.ShowDialog() == true) {
                 return openFileDialog.FileName;
             }
