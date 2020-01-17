@@ -1,0 +1,31 @@
+﻿<Page x:Class="WillowDepends.UI.Views.WorkloadsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WillowDepends.UI.Views"
+      xmlns:viewModels="clr-namespace:WillowDepends.UI.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="600"
+      Title="WorkloadsView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TreeView Name="Workloads"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Grid.Row="0" Grid.Column="0"
+                  ItemsSource="{Binding  Path=Workloads, Mode=OneWay}">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type viewModels:WillowPackage}" ItemsSource="{Binding Dependencies}">
+                    <TextBlock Text="{Binding Path=Name}" />
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </Grid>
+</Page>
