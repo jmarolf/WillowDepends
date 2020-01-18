@@ -3,13 +3,11 @@ using System.Linq;
 using Microsoft.VisualStudio.Setup;
 
 namespace WillowDepends.Lib {
-    public class WillowPackage
-    {
+    public class WillowPackage {
         private readonly Manifest _manifest;
         private IPackage _package;
 
-        public WillowPackage(IPackage package, Manifest manifest)
-        {
+        public WillowPackage(IPackage package, Manifest manifest) {
             _package = package;
             _manifest = manifest;
         }

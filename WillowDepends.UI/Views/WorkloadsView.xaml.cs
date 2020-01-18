@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WillowDepends.UI.ViewModels;
 using Microsoft.Win32;
 using ReactiveUI;
 using WillowDepends.Lib;
+using WillowDepends.UI.ViewModels;
 
 namespace WillowDepends.UI.Views {
     /// <summary>

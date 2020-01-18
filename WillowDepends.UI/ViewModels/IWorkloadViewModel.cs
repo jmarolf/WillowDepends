@@ -2,10 +2,8 @@
 using ReactiveUI;
 using WillowDepends.Lib;
 
-namespace WillowDepends.UI.ViewModels
-{
-    public interface IWorkloadViewModel
-    {
+namespace WillowDepends.UI.ViewModels {
+    public interface IWorkloadViewModel {
         IReactiveDerivedList<WillowPackage> Workloads { get; }
     }
 }
