@@ -26,6 +26,11 @@
                     <TextBlock Text="{Binding Path=Name}" />
                 </HierarchicalDataTemplate>
             </TreeView.Resources>
+            <TreeView.CommandBindings>
+                <CommandBinding Command="ApplicationCommands.Copy" 
+                        Executed="CopyItem"
+                        CanExecute="CanCopyItem"/>
+            </TreeView.CommandBindings>
         </TreeView>
     </Grid>
 </Page>

@@ -16,15 +16,12 @@ using WillowDepends.UI.ViewModels;
 using Microsoft.Win32;
 using ReactiveUI;
 
-namespace WillowDepends.UI.Views
-{
+namespace WillowDepends.UI.Views {
     /// <summary>
     /// Interaction logic for WorkloadsView.xaml
     /// </summary>
-    public partial class WorkloadsView : Page, IViewFor<IWorkloadViewModel>
-    {
-        public WorkloadsView()
-        {
+    public partial class WorkloadsView : Page, IViewFor<IWorkloadViewModel> {
+        public WorkloadsView() {
             InitializeComponent();
             string filePath = OpenManifestFile();
             ViewModel = new WorkloadViewModel(filePath);
@@ -50,6 +47,18 @@ namespace WillowDepends.UI.Views
         object IViewFor.ViewModel {
             get { return ViewModel; }
             set { ViewModel = value as IWorkloadViewModel; }
+        }
+
+        private void CopyItem(object sender, ExecutedRoutedEventArgs e) {
+            // Set text to clip board 
+            TreeView tvi = (TreeView)sender;
+            Clipboard.SetText(((WillowPackage)tvi.SelectedItem).ToString());
+        }
+
+        private void CanCopyItem(object sender, CanExecuteRoutedEventArgs e) {
+            if (sender is TreeView treeView && treeView.SelectedItem is WillowPackage) {
+                e.CanExecute = true;
+            }
         }
     }
 }

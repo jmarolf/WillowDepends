@@ -22,5 +22,7 @@ namespace WillowDepends.UI.ViewModels
             (package.Dependencies as IEnumerable<KeyValuePair<string, Dependency>>)
                 .Select(x => new WillowPackage(manifest[x.Value.Id], manifest))
                 .ToList();
+
+        public override string ToString() => package.Id;
     }
 }
