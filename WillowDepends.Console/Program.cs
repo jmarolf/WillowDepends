@@ -4,45 +4,46 @@ using Microsoft.VisualStudio.Setup;
 using WillowDepends.Lib;
 using static System.Console;
 
-namespace WillowDepends.Console
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var manifest = Manifest.FromManifestFile(@"\\cpvsbuild\Drops\VS\d15.6\products\27412.00\VisualStudio.vsman");
-            var workload = manifest["Microsoft.VisualStudio.Workload.NetWeb"];
-            PrintPackageDependencies(manifest, workload);
+namespace WillowDepends.Console {
+    class Program {
+        static void Main(string[] args) {
+            PrintPackageDependencies(args[0]);
         }
 
-        static void PrintPackageDependencies(Manifest manifest, IPackage workload)
-        {
-            var alreadySeenPackages = new List<string>();
-            void PringPackage(IPackage package, int v)
-            {
-                if (alreadySeenPackages.Contains(package.Id.ToLower()))
-                {
+        static void PrintPackageDependencies(string pathToManifest, string workloadId = null) {
+            var manifest = Manifest.FromManifestFile(pathToManifest);
+
+            if (workloadId != null) {
+                var workload = manifest[workloadId];
+                PrintWorkload(manifest, workload);
+            } else {
+                foreach (var workload in manifest.Workloads) {
+                    PrintWorkload(manifest, workload.Value);
+                }
+            }
+        }
+
+        private static void PrintWorkload(Manifest manifest, IPackage workload) {
+            var alreadySeenPackages = new List<IPackage> { workload };
+            WriteLine(workload.Id);
+            foreach (var dependency in workload.Dependencies) {
+                PrintPackage(manifest[dependency.Id], indentLevel: 1);
+            }
+
+            void PrintPackage(IPackage package, int indentLevel) {
+                if (alreadySeenPackages.Contains(package)) {
                     return;
                 }
 
-                alreadySeenPackages.Add(package.Id.ToLower());
-                for (int i = 0; i < v; i++)
-                {
+                alreadySeenPackages.Add(package);
+                for (int i = 0; i < (indentLevel * 2); i++) {
                     Write(" ");
                 }
                 Write(package.Id);
                 Write(Environment.NewLine);
-                foreach (var dependency in package.Dependencies)
-                {
-                    PringPackage(manifest[dependency.Id], v + 2);
+                foreach (var dependency in package.Dependencies) {
+                    PrintPackage(manifest[dependency.Id], indentLevel + 1);
                 }
-            }
-
-            alreadySeenPackages.Add(workload.Id.ToLower());
-            WriteLine(workload.Id);
-            foreach (var dependency in workload.Dependencies)
-            {
-                PringPackage(manifest[dependency.Id], 4);
             }
         }
     }

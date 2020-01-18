@@ -14,7 +14,7 @@ namespace WillowDepends.UI.ViewModels
         public WorkloadViewModel(string manifestPath)
         {
             var manifest = Manifest.FromManifestFile(manifestPath);
-            Workloads = manifest.Workloads.CreateDerivedCollection(x => new WillowPackage(x, manifest));
+            Workloads = manifest.Workloads.CreateDerivedCollection(x => new WillowPackage(x.Value, manifest));
         }
 
         public IReactiveDerivedList<WillowPackage> Workloads { get; }

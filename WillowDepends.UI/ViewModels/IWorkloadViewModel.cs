@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.Setup;
 using ReactiveUI;
+using WillowDepends.Lib;
 
 namespace WillowDepends.UI.ViewModels
 {

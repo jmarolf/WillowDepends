@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WillowDepends.UI.ViewModels;
 using Microsoft.Win32;
 using ReactiveUI;
+using WillowDepends.Lib;
 
 namespace WillowDepends.UI.Views {
     /// <summary>
