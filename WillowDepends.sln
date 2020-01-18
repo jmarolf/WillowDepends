@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.25814.2
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29715.144
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillowDepends.Lib", "WillowDepends.Lib\WillowDepends.Lib.csproj", "{119698A7-FC84-4D0D-995C-3B2BD369EC4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillowDepends.Lib", "WillowDepends.Lib\WillowDepends.Lib.csproj", "{119698A7-FC84-4D0D-995C-3B2BD369EC4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillowDepends.Console", "WillowDepends.Console\WillowDepends.Console.csproj", "{0D0B93F3-D79B-4779-AD86-54CDBBE52915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillowDepends.Console", "WillowDepends.Console\WillowDepends.Console.csproj", "{0D0B93F3-D79B-4779-AD86-54CDBBE52915}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillowDepends.UI", "WillowDepends.UI\WillowDepends.UI.csproj", "{8B1BA531-C77E-4300-9204-167E9170787A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillowDepends.UI", "WillowDepends.UI\WillowDepends.UI.csproj", "{8B1BA531-C77E-4300-9204-167E9170787A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{132E4E35-3B62-4114-8454-443B83044DA3}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +35,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C19401B7-1E35-4ACD-91BF-FB86D4ECD19A}
 	EndGlobalSection
 EndGlobal
